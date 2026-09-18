@@ -15,7 +15,7 @@ Este repositório reúne os conteúdos, exercícios e projetos desenvolvidos dur
 ## 🛠️ Tecnologias aplicadas
 
 - Node.js
-
+ 
 
 ## 🧰 Ferramentas utilizadas
 
