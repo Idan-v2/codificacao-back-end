@@ -1,31 +1,45 @@
 import { Prop, 
-        Schema, 
-        SchemaFactory } from "@nestjs/mongoose";
+         Schema, 
+         SchemaFactory } from "@nestjs/mongoose";
 import { HydratedDocument } from "mongoose";
 
-export type AlunoDoc = HydratedDocument<Aluno>
+export type AlunoDocument = HydratedDocument<Aluno>;
 
-@Schema()
+@Schema({
+    timestamps: true,
+})
 export class Aluno {
-
-    @Prop({
-        required:true
-    })
-    nome:string;
     
     @Prop({
+        type:String,
         required:true
     })
-    idade:string;
-        
-    @Prop({
+    nome!:string;
+    
+    @Prop ({
+        type: Number, 
+        required:true
+    })
+    idade!:number;
+    
+    @Prop ({
+        type:String,
         required:true,
         unique:true
     })
-    matricula:string;
+    matricula!: string;
 
-    @Prop([String])
-    cursos:string[];
+    @Prop ({
+        type:[String],
+        required: true,
+    })
+    cursos!:string[];
+
+    @Prop({
+        type:Boolean,
+        default: true,
+    })
+    ativo!: boolean;
 }
 
 export const AlunoSchema = SchemaFactory.createForClass(Aluno);
